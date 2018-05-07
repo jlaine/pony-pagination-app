@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { Observable, Subject } from 'rxjs';
-import { merge, share, startWith, switchMap } from 'rxjs/operators';
+import { debounceTime, merge, share, startWith, switchMap } from 'rxjs/operators';
 
 import { Page } from '../pagination';
 import { Pony, PonyService } from '../pony.service';
@@ -25,6 +25,7 @@ export class PonyListComponent {
       search: new FormControl()
     });
     this.page = this.filterForm.valueChanges.pipe(
+      debounceTime(200),
       startWith(this.filterForm.value),
       merge(this.pageUrl),
       switchMap(urlOrFilter => this.ponyService.list(urlOrFilter)),
