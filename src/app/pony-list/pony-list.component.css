@@ -1,0 +1,26 @@
+.container {
+    max-width: 400px;
+}
+
+.search-bar {
+    display: flex;
+    margin: 16px 0;
+}
+
+.search-bar input {
+    flex: 1;
+    line-height: 36px;
+}
+
+.search-bar select {
+    line-height: 36px;
+}
+
+.pony {
+    background-color: lightgray;
+    padding: 8px;
+}
+
+.pony.available {
+    background-color: lightseagreen;
+}

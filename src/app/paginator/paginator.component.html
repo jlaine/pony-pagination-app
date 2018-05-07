@@ -1,0 +1,7 @@
+<div class="container" *ngIf="page">
+  <button (click)="pageChange.emit(page.previous)" [disabled]="!page.previous">&lsaquo;</button>
+  <span>
+    {{ page.count }} results
+  </span>
+  <button (click)="pageChange.emit(page.next)" [disabled]="!page.next">&rsaquo;</button>
+</div>

@@ -1,0 +1,16 @@
+<div class="container" [formGroup]="filterForm">
+  <div class="search-bar">
+    <input formControlName="search" placeholder="Search by pony name">
+    <select formControlName="is_available">
+      <option [value]="null">Is available?</option>
+      <option [value]="true">Yes</option>
+      <option [value]="false">No</option>
+    </select>
+  </div>
+
+  <div *ngFor="let pony of (page | async)?.results" [ngClass]="{'available': pony.is_available, 'pony': true}">
+    {{ pony.name }}
+  </div>
+
+  <app-paginator [page]="page | async" (pageChange)="onPageChanged($event)"></app-paginator>
+</div>
