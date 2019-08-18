@@ -14,7 +14,7 @@ import { Pony, PonyService } from '../pony.service';
 })
 export class PonyListComponent {
   filterForm: FormGroup;
-  page: Observable<Page<Pony>>
+  page: Observable<Page<Pony>>;
   pageUrl = new Subject<string>();
 
   constructor(

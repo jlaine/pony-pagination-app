@@ -6,14 +6,14 @@ import { AppComponent } from './app.component';
   selector: 'app-pony-list',
   template: ''
 })
-export class PonyListComponentMock { }
+export class PonyListMockComponent { }
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        PonyListComponentMock
+        PonyListMockComponent
       ],
     }).compileComponents();
   }));

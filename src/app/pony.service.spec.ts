@@ -39,7 +39,7 @@ describe('PonyService', () => {
           is_available: false,
           name: 'Super Sparkles'
         }
-      ])
+      ]);
     });
 
     httpMock.expectOne({
@@ -61,7 +61,7 @@ describe('PonyService', () => {
           name: 'Super Sparkles'
         }
       ]
-    })
+    });
   });
 
   it('should retrieve next page of results', () => {
@@ -75,7 +75,7 @@ describe('PonyService', () => {
           is_available: true,
           name: 'Turbo Tammy'
         }
-      ])
+      ]);
     });
 
     httpMock.expectOne({
@@ -92,7 +92,7 @@ describe('PonyService', () => {
           name: 'Turbo Tammy'
         }
       ]
-    })
+    });
   });
 
   it('should retrieve first page of results - with filter', () => {
@@ -107,7 +107,7 @@ describe('PonyService', () => {
           is_available: true,
           name: 'Super Sparkles'
         }
-      ])
+      ]);
     });
 
     httpMock.expectOne({
@@ -124,6 +124,6 @@ describe('PonyService', () => {
           name: 'Super Sparkles'
         }
       ]
-    })
+    });
   });
 });
