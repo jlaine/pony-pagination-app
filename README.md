@@ -1,3 +1,6 @@
+[![Tests](https://img.shields.io/github/workflow/status/jlaine/pony-pagination-app/tests.svg)](https://github.com/jlaine/pony-pagination-app/actions)
+[![Coverage](https://img.shields.io/codecov/c/github/jlaine/pony-pagination-app.svg)](https://codecov.io/github/jlaine/pony-pagination-app)
+
 # Pony application
 
 This code demonstrates how to use server-side filtering and pagination in an
