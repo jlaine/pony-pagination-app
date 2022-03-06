@@ -10,7 +10,7 @@ jobs:
     - name: Install node
       uses: actions/setup-node@v1
       with:
-        node-version: 10.X
+        node-version: 16
     - name: Install packages
       run: npm install
     - name: Run code linter
