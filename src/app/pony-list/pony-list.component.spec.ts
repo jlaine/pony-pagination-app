@@ -26,24 +26,20 @@ class PonyServiceMock {
     });
   }
 }
+
 describe('PonyListComponent', () => {
   let component: PonyListComponent;
   let fixture: ComponentFixture<PonyListComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        PaginatorComponent,
-        PonyListComponent
-      ],
       imports: [
-        ReactiveFormsModule
+        PonyListComponent,
       ],
       providers: [
-        { provide: PonyService, useClass: PonyServiceMock}
-       ]
-    })
-    .compileComponents();
+        { provide: PonyService, useClass: PonyServiceMock }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

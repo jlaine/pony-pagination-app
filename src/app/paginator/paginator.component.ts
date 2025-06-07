@@ -4,10 +4,10 @@ import { Page } from '../pagination';
 
 @Component({
   selector: 'app-paginator',
+  styleUrl: './paginator.component.css',
   templateUrl: './paginator.component.html',
-  styleUrls: ['./paginator.component.css']
 })
 export class PaginatorComponent {
-  @Input() page: Page<any>;
+  @Input() page: Page<any> | null = null;
   @Output() pageChange = new EventEmitter<string>();
 }

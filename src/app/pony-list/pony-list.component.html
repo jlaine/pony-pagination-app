@@ -8,9 +8,11 @@
     </select>
   </div>
 
-  <div *ngFor="let pony of (page | async)?.results" [ngClass]="{'available': pony.is_available, 'pony': true}">
-    {{ pony.name }}
-  </div>
+  @for (pony of (page | async)?.results; track pony) {
+    <div [ngClass]="{'available': pony.is_available, 'pony': true}">
+      {{ pony.name }}
+    </div>
+  }
 
   <app-paginator [page]="page | async" (pageChange)="onPageChanged($event)"></app-paginator>
 </div>

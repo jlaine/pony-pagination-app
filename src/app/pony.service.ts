@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Page, queryPaginated} from './pagination';
+import { Page, queryPaginated } from './pagination';
 
-export class Pony {
+export interface Pony {
   id: number;
   is_available: boolean;
   name: string;
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class PonyService {
   baseUrl = 'http://localhost:8000/v1/ponies';
 

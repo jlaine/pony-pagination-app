@@ -1,5 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { PonyService } from './pony.service';
 
@@ -9,12 +10,12 @@ describe('PonyService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [PonyService]
+      imports: [],
+      providers: [PonyService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
     });
 
-    service = TestBed.get(PonyService);
-    httpMock = TestBed.get(HttpTestingController);
+    service = TestBed.inject(PonyService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => {
