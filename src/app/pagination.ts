@@ -1,14 +1,14 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export class Page<T> {
+export interface Page<T> {
   count: number;      // total number of items
   next: string;       // URL of the next page
   previous: string;   // URL of the previous page
   results: Array<T>;  // items for the current page
 }
 
-export function queryPaginated<T>(http: HttpClient, baseUrl: string, urlOrFilter?: string | object): Observable<Page<T>> {
+export function queryPaginated<T>(http: HttpClient, baseUrl: string, urlOrFilter?: string | Record<string, any>): Observable<Page<T>> {
   let params = new HttpParams();
   let url = baseUrl;
 

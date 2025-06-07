@@ -1,19 +1,29 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { Observable, Subject, merge } from 'rxjs';
-import { debounceTime, map, share, startWith, switchMap } from 'rxjs/operators';
+import { debounceTime, share, startWith, switchMap } from 'rxjs/operators';
 
 import { Page } from '../pagination';
+import { PaginatorComponent } from '../paginator/paginator.component';
 import { Pony, PonyService } from '../pony.service';
 
 @Component({
+  imports: [
+    CommonModule,
+    PaginatorComponent,
+    ReactiveFormsModule,
+  ],
   selector: 'app-pony-list',
+  styleUrl: './pony-list.component.css',
   templateUrl: './pony-list.component.html',
-  styleUrls: ['./pony-list.component.css']
 })
 export class PonyListComponent {
-  filterForm: FormGroup;
+  filterForm: FormGroup<{
+    is_available: FormControl<boolean | null>,
+    search: FormControl<string | null>,
+  }>;
   page: Observable<Page<Pony>>;
   pageUrl = new Subject<string>();
 
@@ -21,8 +31,8 @@ export class PonyListComponent {
     private ponyService: PonyService
   ) {
     this.filterForm = new FormGroup({
-      is_available: new FormControl(),
-      search: new FormControl()
+      is_available: new FormControl<boolean | null>(null),
+      search: new FormControl<string | null>(null)
     });
 
     const filterValue = this.filterForm.valueChanges.pipe(
