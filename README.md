@@ -4,7 +4,7 @@
 # Pony application
 
 This code demonstrates how to use server-side filtering and pagination in an
-Angular 6 application.
+Angular 20 application.
 
 ## Install the dependencies
 
